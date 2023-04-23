@@ -17,6 +17,7 @@ def consume():
     consumer=KafkaConsumer('topicOne',bootstrap_servers='localhost:9092',auto_offset_reset='earliest',group_id='group_one')
     print('doings')
     for msg in consumer:
+        #Get process id of current consumer
         pid = os.getpid()
         print(pid)
         print(msg.value)

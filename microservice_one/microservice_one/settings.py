@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'kafka_one.urls'
+ROOT_URLCONF = 'microservice_one.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'kafka_one.wsgi.application'
+WSGI_APPLICATION = 'microservice_one.wsgi.application'
 
 
 # Database

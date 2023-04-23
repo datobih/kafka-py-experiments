@@ -24,7 +24,7 @@
 import os
 import django
 from kafka import KafkaConsumer
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kafka_one.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'microservice_one.settings')
 django.setup()
 if (__name__=='__main__'):
     from django.contrib.auth import get_user_model
@@ -35,3 +35,5 @@ if (__name__=='__main__'):
         message.text=(msg.value).decode('utf-8')
         message.save()
         print(f"saved {msg.value}")
+
+        
