@@ -26,14 +26,25 @@ import django
 from kafka import KafkaConsumer
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'microservice_one.settings')
 django.setup()
-if (__name__=='__main__'):
-    from django.contrib.auth import get_user_model
+
+def consume():
     from consumer_app.models import Message
-    consumer= KafkaConsumer('topic_one',bootstrap_servers='localhost:9092',auto_offset_reset='earliest',group_id='my-group')
+    consumer= KafkaConsumer('topicOne',bootstrap_servers='localhost:9092',auto_offset_reset='earliest',group_id='group_one')
     for msg in consumer:
+        #Get process id of current consumer
+        pid = os.getpid()
+        print(pid)
+        print(msg.value)
+        print(msg.partition)
         message=Message()
         message.text=(msg.value).decode('utf-8')
         message.save()
+        consumer.commit()
         print(f"saved {msg.value}")
+
+if (__name__=='__main__'):
+    from multiprocessing import Process
+    Process(target=consume).start()
+
 
         
