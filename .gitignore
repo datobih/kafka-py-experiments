@@ -62,6 +62,7 @@ db.sqlite3
 db.sqlite3-journal
 microservice-1-env
 microservice-2-env
+api-gateway-env
 
 # Flask stuff:
 instance/
