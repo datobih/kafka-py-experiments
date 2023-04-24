@@ -12,3 +12,7 @@ class Handshake_MicroserviceOne_View(APIView):
         produce.send('topicOne',key=None,value=b_data)
         produce.flush()
         return Response('Done')
+    
+class GreetingsView(APIView):
+    def get(self,request):
+        return Response('Greetings,welcome to Microservice Two')

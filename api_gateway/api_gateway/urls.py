@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import MicroserviceOneView,MicroserviceTwoView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('greet-microservice-one/',MicroserviceOneView.as_view()),
+    path('greet-microservice-two/',MicroserviceTwoView.as_view())
 ]

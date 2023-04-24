@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from consumer_app.views import Handshake_MicroserviceOne_View
+from consumer_app.views import Handshake_MicroserviceOne_View,GreetingsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('microservice-one/',Handshake_MicroserviceOne_View.as_view())
+    path('microservice-one/',Handshake_MicroserviceOne_View.as_view()),
+    path('greetings/',GreetingsView.as_view())
 ]
