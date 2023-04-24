@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from consumer_app.views import Handshake_MicroserviceTwo_View
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('microservice-two/',Handshake_MicroserviceTwo_View.as_view())
 ]
